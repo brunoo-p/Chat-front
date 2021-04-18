@@ -12,12 +12,12 @@ export default function Chat() {
     const [ showPortal, setShowPortal ] = useState(true);
     const latestChat = useRef(null);
 
-    const url = 'https://brpchat-back.herokuapp.com/chat';
+    //const url = 'https://brpchat-back.herokuapp.com';
     latestChat.current = chat;
 
     useEffect(() => {
         const newConnection = new HubConnectionBuilder()
-            .withUrl(url)
+            .withUrl('https://brpchat-back.herokuapp.com')
             .withAutomaticReconnect()
             .build();
             
