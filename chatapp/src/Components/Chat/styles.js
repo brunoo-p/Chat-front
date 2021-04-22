@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import fundo from '../../Assets/fundo.jpg';
 
 export const Container = styled.div`
     display: flex;
@@ -7,7 +8,12 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     
-    background: #7d5fff;
+    background: url(${fundo});
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    //background: #7d5fff;
     font-family: 'Roboto', sans serif;
 `;
 
@@ -24,8 +30,8 @@ export const Wrapper = styled.aside`
 export const Content = styled.div`
     display: flex;
     width: 100%;
-    max-width: 400px;
     height: 80%;
+    overflow: hidden;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
