@@ -11,17 +11,16 @@ export default function ChatInput({sendMessage}) {
         const isMessageProvided = message && message !== '';
 
         if(isMessageProvided )
-        {   
+        {
             sendMessage(message);
             setMessage("");
         }else{
-            alert("Digite algo.");
+            alert("Ta fazendo errado");
         }
     }
 
     const onMessageUpdate = ({target}) => {
         setMessage(target.value);
-
     };
 
 
