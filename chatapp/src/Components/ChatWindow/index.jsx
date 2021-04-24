@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Message from '../Message';
 import { Container } from './styles';
 
@@ -10,7 +10,6 @@ export default function ChatWindow({chat}) {
         message={msg.message}/>
     );
 
-        
     return (
         <Container>
             {conversa}        
