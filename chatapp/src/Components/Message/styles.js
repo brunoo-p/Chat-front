@@ -7,18 +7,15 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-   background-color: #FFF;
-   border-radius: 10px;
-   box-shadow: 0 1px 1px #CCC;
-   display: flex;
-   flex-direction: column;
-   padding: 3px;
-   max-width: 90%;
-   box-sizing: border-box;
-`;
+    display: flex;
+    flex-direction: column;
+    padding: 3px;
+    max-width: 90%;
+    word-wrap: break-word;
 
-export const User = styled.div`
-
+    background-color: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 1px 1px #CCC;
 `;
 
 export const Text = styled.div`

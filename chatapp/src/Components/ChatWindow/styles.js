@@ -4,11 +4,11 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 98%;
-    max-width: 400px;
+    max-width: 380px;
     height: 90%;
     overflow-y: auto;
-    //overflow-x: hidden;
-    box-sizing: border-box;
+    overflow-x: hidden;
+    //box-sizing: border-box;
 
     background: white;
     border: 1px solid rgba(16,16,16,.3);
