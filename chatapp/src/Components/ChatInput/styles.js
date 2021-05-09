@@ -44,16 +44,28 @@ export const WriteMessage = styled.div`
         margin-left: 10px;
         padding: 5px;
         cursor: pointer;
-        background: rgb(64, 115, 158, .4);
-        border: 1px solid white;
+        background: transparent;
+        border: 2px solid rgb(64, 115, 158, .7);
         color: #353b48;
         font-size: 15px;
         font-weight: 700;
-        transition: all 0.5s ease-out;
-
-        :hover{
-            background: linear-gradient(0.45turn, rgba(64, 115, 158, .7), rgba(253, 150, 68, .5));
-            transition: 0.5s ease-out;
-        }
+        position: relative; 
     }
+    
+    ::before {
+        content: '';
+        position: absolute;
+        margin-left: 327px;
+        border-radius: 5px;
+        margin-top: 7px;
+        background: linear-gradient(0.45turn, rgba(64, 115, 158, .7), rgba(253, 150, 68, .5));
+        width: 0;
+        height: 41px;
+        transition: .3s ease-in;
+    }
+
+    :hover::before{
+        width: 61px;
+    }
+
 `;

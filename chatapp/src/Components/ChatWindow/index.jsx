@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Message from '../Message';
 import { Container } from './styles';
 
-export default function ChatWindow({chat}) {
+export default function ChatWindow({chat, myUser}) {
     
     const conversa = chat.map(msg =>
         <Message key={Date.now() * Math.random()}
         user={msg.user}
-        message={msg.message}/>
+        message={msg.message}
+        myUser={myUser}/>
     );
 
         

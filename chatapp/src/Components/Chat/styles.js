@@ -8,21 +8,24 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     
+    background: rgb(6,6,6);
     background: url(${fundo});
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 
-    //background: #7d5fff;
     font-family: 'Roboto', sans serif;
 `;
 
 export const Wrapper = styled.aside`
     display: flex;
     flex-direction: column;
-    width: 90%;
-    max-width: 400px;
+    width: 87%;
     height: 70%;
+    padding: 70px;
+    border-radius: 20px;
+    background: rgba(4,4,4,.1);
+    backdrop-filter: blur(4px);
     align-items: center;
     justify-content: space-around;
 `;
@@ -30,7 +33,9 @@ export const Wrapper = styled.aside`
 export const Content = styled.div`
     display: flex;
     width: 100%;
+    max-width: 400px;
     height: 80%;
+    max-height: 400px;
     overflow: hidden;
     flex-direction: column;
     align-items: center;

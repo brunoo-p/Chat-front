@@ -1,17 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';
-import { ChatInput, ChatWindow, Portal, Nickname } from '..';
-import { Container, Wrapper, Content, Contact } from './styles';
-import api from '../../Services/api';
+import { ChatInput, ChatWindow, Portal, Nickname, UserDetails } from '..';
+import { Container, Wrapper, Content } from './styles';
+//import api from '../../Services/api';
 
 export default function Chat() {
 
     const [ connection, setConnection ] = useState(null);
     const [ chat, setChat ] = useState([]);
-    const [ user, setUser ] = useState('Desconhecido');
-    const [ id, setId ] = useState();
+    const [ user, setUser ] = useState("Desconhecido");
+    const [ id, setId ] = useState('');
     const [ showPortal, setShowPortal ] = useState(false);
-    
+    const myUser = user;
+
     const latestChat = useRef(null);
 
     latestChat.current = chat;
@@ -67,7 +68,6 @@ export default function Chat() {
                 try {
 
                     await connection.send('SendPrivateMessage', chatMessage);
-                    //await api.post("/chat/message", JSON.stringify(chatMessage));
                 }
                 catch(e) {
                     console.log(e);
@@ -77,25 +77,21 @@ export default function Chat() {
                 alert('No connection to server yet.');
             }
         } 
-        
-    let contato = user === 'maisa' ? 'Bruno Lindão' : 'Nome contato';
 
     return (
         <Container>
             {showPortal ? 
                 
                 <Portal>
-                    <Nickname setId={setId} setUser={setUser} setShowPortal={setShowPortal}/>
+                    <Nickname setUser={setUser} setId={setId} setShowPortal={setShowPortal}/>
                 </Portal>
                 :
                 <Wrapper>
 
-                    <Contact>
-                        <label htmlFor="user"> {contato} </label>
-                    </Contact>
+                    <UserDetails setShowPortal={setShowPortal} setChat={setChat}/>
                     
                     <Content>
-                        <ChatWindow chat={chat}/>
+                        <ChatWindow chat={chat} myUser={myUser}/>
                         <ChatInput sendMessage={sendMessage} />
                     </Content>
                 
