@@ -40,21 +40,25 @@ export default function Nickname({setUser, setId, setShowPortal}) {
 
     const handleSubmitLogin = async (event) => {
         event.preventDefault();
-        const USERFINDED = 200;
+//         const USERFINDED = 200;
 
-        const response = await api.post(`/user/login?nickname=${nickname}&password=${password}`);
-        console.log(response);
+//         const response = await api.post(`/user/login?nickname=${nickname}&password=${password}`);
+//         console.log(response);
 
-        if(response.status !== USERFINDED)
-        {
-            alert("Nickname or password invalids.");
-            setNickname("");
-            setPassword("");
+//         if(response.status !== USERFINDED)
+//         {
+//             alert("Nickname or password invalids.");
+//             setNickname("");
+//             setPassword("");
             
-        }else{
+//         }else{
 
-            setShowPortal(false);
-        }
+//             setShowPortal(false);
+//         }
+        
+        setUser( nickname );
+        setId( Math.floor(Math.random() * 256));
+        setShowPortal(false);
     }
 
     return (
