@@ -10,7 +10,7 @@ export default function Chat() {
     const [ chat, setChat ] = useState([]);
     const [ user, setUser ] = useState("Desconhecido");
     const [ id, setId ] = useState('');
-    const [ showPortal, setShowPortal ] = useState(false);
+    const [ showPortal, setShowPortal ] = useState(true);
     const myUser = user;
 
     const latestChat = useRef(null);
