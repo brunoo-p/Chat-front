@@ -22,12 +22,16 @@ export const Wrapper = styled.aside`
     flex-direction: column;
     width: 87%;
     height: 70%;
-    padding: 70px;
+    max-height: 500px;
     border-radius: 20px;
     background: rgba(4,4,4,.1);
     backdrop-filter: blur(4px);
     align-items: center;
     justify-content: space-around;
+
+    @media(min-width: 1024px){
+        padding: 70px;
+    }
 `;
 
 export const Content = styled.div`
