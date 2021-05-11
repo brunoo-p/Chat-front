@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Content, User, Text, Date } from './styles';
+import { Container, Content, Text, Date } from './styles';
 
 function Message({user, message, myUser}) {
 
