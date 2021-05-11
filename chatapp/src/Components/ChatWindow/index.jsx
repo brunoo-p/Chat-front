@@ -5,6 +5,7 @@ import { Container } from './styles';
 export default function ChatWindow({chat, myUser}) {
     
     const messageElement = useRef(null);
+    const [historic, setHistorc] = useState([]);
 
     useEffect(() => {
         if (messageElement) {
@@ -18,6 +19,13 @@ export default function ChatWindow({chat, myUser}) {
         }
       }, []);
     
+    useEffect(() => {
+    
+        let current = [];
+        current.push(conversa);
+        setHistorc(current);
+    
+    }, [conversa]);
     
     const conversa = chat.map(msg =>
         <Message key={Date.now() * Math.random()}
@@ -25,11 +33,12 @@ export default function ChatWindow({chat, myUser}) {
         message={msg.message}
         myUser={myUser}/>
     );
+    
 
         
     return (
         <Container ref={messageElement}>
-            {conversa}        
+            {historic}        
         </Container>
     )
 }
