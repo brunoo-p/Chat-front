@@ -58,9 +58,14 @@ export default function Chat() {
 
         const sendMessage = async (message) => {
             console.log(chat);
+            
+            const d = new window.Date();
+            let date = d.getHours() + ":" + d.getMinutes();
+            
             const chatMessage = {
                 user,
                 message,
+                date
             };
             
     
@@ -74,7 +79,7 @@ export default function Chat() {
                 }
             }
             else {
-                alert('No connection to server yet.');
+                alert('Conexão não estabelecida.');
             }
         } 
 
