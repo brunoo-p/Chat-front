@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaMicrophoneAlt } from 'react-icons/fa';
 
 export const Form = styled.form`
     margin: 0;
