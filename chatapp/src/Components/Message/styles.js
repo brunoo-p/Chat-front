@@ -24,11 +24,14 @@ export const Text = styled.div`
 `;
 
 export const Date = styled.div`
-    font-size: 10px;
-    color: rgb(119, 140, 163);
-    font-weight: 700;
-    margin-right: 5px;
-    text-align: right;f
     height: 15px;
+
+    font-size: 10px;
+    font-weight: 500;    
+    text-align: right;
+
+    margin-right: 5px;
+    color: #57606f;
+    
     margin-top: -15px;
 `;
