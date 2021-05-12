@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, WriteMessage } from './styles';
+import { Form, WriteMessage, MicIcon, SendMessage } from './styles';
 
 export default function ChatInput({sendMessage}) {
 
@@ -25,12 +25,17 @@ export default function ChatInput({sendMessage}) {
     };
 
 
+    const handleSendAudio = () => {
+        console.log("Mandar Audio");
+    }
+    
+    
     return (
         <Form onSubmit={onSubmit}> 
 
             <WriteMessage>
                 <input type="text" name="message" className="inputMessage" placeholder="Digite a menssagem"value={message}onChange={onMessageUpdate}/>
-                <input type="submit" value="Enviar" className="inputSubmit"/>
+                 {message.length > 0 ? <SendMessage>Enviar</SendMessage> : <MicIcon onclick={ handleSendAudio }/>}
             </WriteMessage>
             
         </Form>
