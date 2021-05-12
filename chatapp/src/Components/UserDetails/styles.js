@@ -59,7 +59,7 @@ export const Content = styled.div`
     display: flex;
     width: 85%;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 5px;
     position: absolute;
     
