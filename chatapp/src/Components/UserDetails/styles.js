@@ -57,7 +57,7 @@ export const Container = styled.div`
 
 export const Content = styled.div`
     display: flex;
-    width: 95%;
+    width: 85%;
     align-items: center;
     justify-content: space-evenly;
     padding: 5px;
@@ -149,11 +149,16 @@ export const UserImage = styled.div`
 
 export const UserName = styled.span`
     display: flex;
+
+    width: 100px;
+    justify-content: center;
+
     font-familly: Roboto, sans serif;
     font-size: 18px;
     font-weight: 700;
 
     @media(min-width: 1024px){
         font-size: 20px;
+        width: 200px;
     }
 `;
