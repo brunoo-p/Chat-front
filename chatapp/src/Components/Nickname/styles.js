@@ -9,28 +9,33 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-around;
 
-    background: rgba(14,14,14,.6);
+    backdrop-filter: blur(3px);
+    border: 1px solid white;
     padding 20px;
     
     border-radius: 15px;
-    transition: 0.8s ease-out;
-    filter: drop-shadow(0px 0px 1px rgba(240,240,240, .4));
+    transition: 0.5s ease-out;
+    animation: move 1.5s infinite ;
+
+    @keyframes move {
+        0% {transform: translateY(0)}
+        50% {transform: translateY(-5%)}
+        100% {transform: translateY(0)}
+    }
     
     :hover{
-        filter: drop-shadow(10px 5px 4px rgba(20,24,16, .5));
-        background: linear-gradient(rgba(245,245,242, .2), rgba(6,6,6,.4) 67.36%);
-        border: 1px solid rgba(205,205,202, .2);
+        backdrop-filter: blur(15px);
+        animation: none;
     }
 
     p{
         margin-top: 40px;
         cursor: pointer;
-        color: #7d5fff;
+        color: rgba(64, 74, 168, .7);
         transition: 0.3s ease-in;
 
         :hover{
-            color: white;
-            filter: drop-shadow(0px 0px 1px rgba(240,240,240, .3));
+            color: blue;
             text-decoration: 2px underline #7d5fff
         }
     }
@@ -46,7 +51,7 @@ export const Form = styled.form`
     label{
         font-size: 22px;
         font-weight: 700;
-        color: #CCC;
+        color: rgba(64, 74, 168);
         margin-bottom: 20px;
     }
 
@@ -57,6 +62,8 @@ export const Form = styled.form`
 
         padding: 8px;
         color: #353b48;
+
+        border: 2px solid transparent;
         border-radius: 5px;
         border: 1px solid transparent;
         background: rgba(243,243,243, 0.9);
@@ -64,7 +71,7 @@ export const Form = styled.form`
 
         :focus{
             outline: none;
-            border: 1px solid rgb(73,63,201);
+            border: 2px solid rgb(64, 115, 198, .6);
         }
     }
     .inputLogin{
@@ -77,10 +84,11 @@ export const Form = styled.form`
         justify-content: center;
         transition: 0.4s ease-out;
         margin-top: 20px;
-
+        border: 2px solid #60a3bc;
+        
         :hover{
-            background: rgba(73,63,201, 0.3);
-            border: 1px solid rgba(240,240,240,.2);
+            background: rgba(7,6,6, .4);
+
             color: white;
         }
     }    

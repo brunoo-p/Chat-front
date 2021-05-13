@@ -12,10 +12,10 @@ export const Container = styled.div`
     font-family: Roboto, sans serif;
 
     border-radius:  10px;
-    color: #CCC;
+    color: ${({theme}) => theme.text};
     justify-content: center;
     flex-direction: column;
-    background: rgba(2,2,2,.5);
+    background: ${({theme}) => theme.body};
 
     article{
         display: flex;
@@ -33,6 +33,7 @@ export const Container = styled.div`
         font-size: 14px;
         font-weight: 900;
 
+        color: ${({theme}) => theme.text};
         background: none;
         border: none;
         border-radius: 5px;
@@ -42,6 +43,7 @@ export const Container = styled.div`
         transform: translateY(-25px);
 
         :focus{
+            filter: none;
             outline: none;
             background: rgba(34,200,122, 0.2);
             border-bottom: 2px solid white;
@@ -50,7 +52,7 @@ export const Container = styled.div`
 
     :hover{
         transform: scale(1.05);
-        filter: drop-shadow(0px 0px 1px rgba(240,240,240, .4));
+        filter: drop-shadow(0px 0px 2px rgba(240,240,240, .8));
         
     }
 `;
@@ -95,12 +97,12 @@ export const SettingMenu = styled.div`
 
     color: rgb(6,6,6);
     font-size: 12px;
-    font-weight: 700;
+    font-weight: 900;
     padding: 10px;
     border-radius: 10px;
 
     background: rgba(34,200,122, 0.4);
-    filter: drop-shadow(0px 0px 1px rgba(240,240,240, .6));
+    filter: drop-shadow(0px 0px 1px rgba(240,240,240, .4));
 
     &.open{
         opacity: 1;
@@ -121,12 +123,12 @@ export const SettingMenu = styled.div`
         list-style: none;
         text-decoration-line: underline overline;
         text-decoration-color: rgba(245,245,240, 0.8);
-        
+
         cursor: pointer;
 
         :hover{
             background: rgba(34,200,122, 0.2);
-            text-decoration-color:rgba(64, 115, 158, .5); 
+            text-decoration-color:rgba(64, 115, 158, .5);
         }
     }
 `;
@@ -149,12 +151,10 @@ export const UserImage = styled.div`
 
 export const UserName = styled.span`
     display: flex;
-
-    width: 100px;
+    width: 180px;
     justify-content: center;
-
     font-familly: Roboto, sans serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
 
     @media(min-width: 1024px){

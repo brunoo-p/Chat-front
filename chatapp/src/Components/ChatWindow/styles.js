@@ -9,8 +9,9 @@ export const Container = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
 
-    background: white;
-    border: 1px solid rgba(16,16,16,.3);
+    background: ${({theme}) => theme.backgruond};
+    //border: 1px solid rgba(16,16,16,.3);
+    border: none;
     border-radius: 5px;
     padding: 8px;
 
@@ -25,7 +26,8 @@ export const Container = styled.div`
     ::-webkit-scrollbar-thumb {
         -webkit-border-radius: 10px;
         border-radius: 10px;
-        background: rgba(5,0,0,0.34); 
+
+        background: ${({theme}) => theme.borderInput};
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
     }
 `;

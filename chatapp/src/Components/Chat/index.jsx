@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 import { ChatInput, ChatWindow, Portal, Nickname, UserDetails } from '..';
-import { Container, Wrapper, Content } from './styles';
+
+import {ThemeProvider} from 'styled-components';
+import { lightTheme, darkTheme } from '../../theme';
+
+import { Container, ToggleLight, ToggleDark, Wrapper, Content } from './styles';
 //import api from '../../Services/api';
 
 export default function Chat() {
@@ -10,7 +14,9 @@ export default function Chat() {
     const [ chat, setChat ] = useState([]);
     const [ user, setUser ] = useState("Desconhecido");
     const [ _, setId ] = useState('');
-    const [ showPortal, setShowPortal ] = useState(true);
+
+    const [ theme, setTheme ] = useState('light');
+    const [ showPortal, setShowPortal ] = useState(false);
     const myUser = user;
 
     const latestChat = useRef(null);
@@ -19,7 +25,7 @@ export default function Chat() {
 
     useEffect(() => {
         const newConnection = new HubConnectionBuilder()
-            .withUrl("https://brpchat-back.herokuapp.com/chat")
+        .withUrl("https://brpchat-back.herokuapp.com/chat")
             .withAutomaticReconnect()
             .build();
             
@@ -31,14 +37,17 @@ export default function Chat() {
              
             (async () => {
 
-                if (connection) {
+                if(connection) {
                     await connection.start();
                     console.log('Connected!');
                     
                     try{
+
                         connection.on('ReceivePrivateMessage', (message) => {
-                            console.log(message);
+
+                            console.log("message", message);
                             const updatedChat = [...latestChat.current];
+
                             updatedChat.push(message);
                             
                             
@@ -57,17 +66,19 @@ export default function Chat() {
         }, [connection]);
 
         const sendMessage = async (message) => {
-            console.log(chat);
-            
+
             const d = new window.Date();
-            let date = d.getHours() + ":" + d.getMinutes();
+            let hours = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+            let minutes = d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes();  
             
-            const chatMessage = {
+            let date = hours + ":" + minutes;
+            
+                const chatMessage = {
                 user,
                 message,
                 date
             };
-            
+
     
             if (connection.connectionStarted) {
                 try {
@@ -82,26 +93,39 @@ export default function Chat() {
                 alert('Conexão não estabelecida.');
             }
         } 
+        
+        const toggleTheme = () => {
+            if (theme === 'light') {
+              setTheme('dark');
+            } else {
+              setTheme('light');
+            }
+        }
 
     return (
-        <Container>
-            {showPortal ? 
+        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+            <Container>
                 
-                <Portal>
-                    <Nickname setUser={setUser} setId={setId} setShowPortal={setShowPortal}/>
-                </Portal>
-                :
-                <Wrapper>
-
-                    <UserDetails setShowPortal={setShowPortal} setChat={setChat}/>
+                {showPortal ? 
                     
-                    <Content>
-                        <ChatWindow chat={chat} myUser={myUser}/>
-                        <ChatInput sendMessage={sendMessage} />
-                    </Content>
-                
-                </Wrapper>   
-            }
-        </Container>
+                    <Portal>
+                        <Nickname setUser={setUser} setId={setId} setShowPortal={setShowPortal}/>
+                    </Portal>
+                    :
+                    <Wrapper>
+                        
+                        { theme === 'light' ? <ToggleLight onClick={toggleTheme}/> : <ToggleDark onClick={toggleTheme}/> }
+                        
+                        <UserDetails setShowPortal={setShowPortal} setChat={setChat}/>
+                        
+                        <Content>
+                            <ChatWindow chat={chat} myUser={myUser}/>
+                            <ChatInput sendMessage={sendMessage} />
+                        </Content>
+                    
+                    </Wrapper>   
+                }
+            </Container>
+        </ThemeProvider>
     )
 }
