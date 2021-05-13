@@ -35,7 +35,7 @@ export default function ChatInput({sendMessage}) {
 
             <WriteMessage>
                 <input type="text" name="message" className="inputMessage" placeholder="Digite a menssagem"value={message}onChange={onMessageUpdate}/>
-                 {message.length > 0 ? <SendMessage>Enviar</SendMessage> : <MicIcon onclick={ handleSendAudio }/>}
+                 {message.length > 0 ? <SendMessage>Enviar</SendMessage> : <MicIcon onClick={ handleSendAudio }/>}
             </WriteMessage>
             
         </Form>
