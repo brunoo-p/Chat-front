@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { FaMicrophoneAlt } from 'react-icons/fa';
+import { MdKeyboardArrowUp } from 'react-icons/md';
+import {IoCloseCircleOutline} from 'react-icons/io5';
 
 export const Form = styled.form`
     margin: 0;
@@ -41,6 +43,78 @@ export const WriteMessage = styled.div`
     border-radius: 15px;
     justify-content: space-between;
     padding: 5px;
+`;
+
+export const EmojiArea = styled.div`
+    width: auto;
+    overflow-y: hidden;
+    transition: 0.4s ease-in;
+    border-radius: 10px;
+    
+    .emoji-picker-react .emoji-group:before {
+        font-size: 10px;
+        height: 35px;
+        //background: ${({ theme }) => theme.body};
+    }
+
+    aside.emoji-picker-react {
+        //background: ${({ theme }) => theme.border};
+        //border: 1px solid ${({theme}) => theme.border};
+    }
+
+    .emoji-picker-react .emoji-scroll-wrapper {
+    
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+    
+            background: ${({theme}) => theme.borderInput};
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+        }
+    }
+`;
+
+export const CloseEmojiPicker = styled(IoCloseCircleOutline)`
+
+    position: absolute;
+    z-index: 1;
+    margin-top: -13px;
+    margin-left: -12px;
+
+    width: 25px;
+    height: 25px;
+
+    //color: ${({ theme }) => theme.background};
+    color:  #ff7979;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+
+    :hover{
+        transform: translateY(2px);
+    }
+
+`;
+
+export const OpenEmojiPick = styled(MdKeyboardArrowUp)`
+    width: 30px;
+    height: 30px;
+    animation: 1s move infinite;
+    cursor: pointer;
+
+    @keyframes move {
+        0%{ transform: translateY(0);}
+        50%{ transform: translateY(-15%);}
+        100%{ transform: translateY(0);}
+    }
 `;
 export const SendMessage = styled.button`
     width: 80px;
@@ -87,14 +161,11 @@ export const MicIcon = styled(FaMicrophoneAlt)`
     margin: 15px 5px 0 10px;
     padding: 0 10px;
 
+    color: ${({theme}) => theme.text};
     cursor: pointer;
     transition: 0.2s ease-in;
 
     :hover{
-        color: #60a3bc;
-        backdrop-filter: drop-shadow(1px 0 5px blue);
-    }
-    :focus{
         color: #60a3bc;
     }
 `;

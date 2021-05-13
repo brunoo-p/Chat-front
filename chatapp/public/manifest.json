@@ -1,5 +1,5 @@
 {
-  "short_name": "Chat App",
+  "short_name": "Talkiano",
   "name": "Talkiano",
   "icons": [
     {
@@ -8,13 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "fundo.jpg",
-      "type": "image/jpg",
+      "src": "fundo.png",
+      "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "fundo.jpg",
-      "type": "image/jpg",
+      "src": "fundo.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],
