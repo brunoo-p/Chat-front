@@ -35,7 +35,7 @@ export default function ChatInput({sendMessage}) {
 
     };
 
-    const handleMic = (e) => {
+    const handleMic = () => {
 
         if(recognition !== null){
 
@@ -45,8 +45,8 @@ export default function ChatInput({sendMessage}) {
             recognition.onend = () => {
                 setListening(false);
             }
-            recognition.onresult = () => {
-                setMessage( e.results[0][0].transcript );
+            recognition.onresult = (event) => {
+                setMessage( event.results[0][0].transcript );
             }
 
             recognition.start();
@@ -80,7 +80,7 @@ export default function ChatInput({sendMessage}) {
         <Form onSubmit={onSubmit}> 
 
             <WriteMessage>
-                <input type="text" name="message" className="inputMessage" placeholder="Digite a menssagem"value={message}onChange={onMessageUpdate}/>
+                <input type="text" name="message" className="inputMessage" placeholder="Digite a menssagem" value={message} onChange={onMessageUpdate}/>
                 {message.length > 0 ? <SendMessage>Enviar</SendMessage> : <MicIcon onClick={ handleMic } style={{color: linstening && '#60a3bc' }}/>}
             </WriteMessage>
             
