@@ -6,6 +6,7 @@ import {ThemeProvider} from 'styled-components';
 import { lightTheme, darkTheme } from '../../theme';
 
 import { Container, ToggleLight, ToggleDark, Wrapper, Content } from './styles';
+
 //import api from '../../Services/api';
 
 export default function Chat() {
@@ -25,7 +26,7 @@ export default function Chat() {
 
     useEffect(() => {
         const newConnection = new HubConnectionBuilder()
-        .withUrl("https://brpchat-back.herokuapp.com/chat")
+            .withUrl("https://localhost:5001/chat")
             .withAutomaticReconnect()
             .build();
             
@@ -104,17 +105,19 @@ export default function Chat() {
 
     return (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-            <Container>
-                
-                {showPortal ? 
+            
+            {showPortal ? 
                     
-                    <Portal>
-                        <Nickname setUser={setUser} setId={setId} setShowPortal={setShowPortal}/>
-                    </Portal>
-                    :
+                <Portal>
+                    <Nickname setUser={setUser} setId={setId} setShowPortal={setShowPortal}/>
+                </Portal>
+
+            :
+
+                <Container>
                     <Wrapper>
                         
-                        { theme === 'light' ? <ToggleLight onClick={toggleTheme}/> : <ToggleDark onClick={toggleTheme}/> }
+                        <React.Fragment className="toggle">{ theme === 'light' ? <ToggleLight onClick={toggleTheme}/> : <ToggleDark onClick={toggleTheme}/> } </React.Fragment>
                         
                         <UserDetails setShowPortal={setShowPortal} setChat={setChat}/>
                         
@@ -124,8 +127,8 @@ export default function Chat() {
                         </Content>
                     
                     </Wrapper>   
-                }
-            </Container>
+                </Container>
+            }
         </ThemeProvider>
     )
 }
