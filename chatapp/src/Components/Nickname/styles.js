@@ -15,7 +15,7 @@ export const Container = styled.div`
     
     border-radius: 15px;
     transition: 0.5s ease-out;
-    animation: move 1.5s infinite ;
+    animation: move 1.5s infinite;
 
     @keyframes move {
         0% {transform: translateY(0)}
@@ -36,7 +36,7 @@ export const Container = styled.div`
 
         :hover{
             color: blue;
-            text-decoration: 2px underline #7d5fff
+            text-decoration: 2px underline #7d5fff;
         }
     }
 `;

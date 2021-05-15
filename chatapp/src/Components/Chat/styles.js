@@ -14,6 +14,49 @@ export const Container = styled.div`
     font-family: 'Roboto', sans serif;
     color: ${({theme}) => theme.text};
     transition: 0.5s linear;
+
+    transform: scale(1);
+    animation: showChat 3s ease-in;
+
+
+    @keyframes showChat {
+        0% { 
+            background: black;
+            clip-path: polygon(36% 40%, 52% 46%, 63% 58%, 51% 58%, 40% 59%, 31% 58%, 40% 46%);
+        }
+        10% { 
+            background: black;
+            clip-path: polygon(46% 40%, 52% 46%, 63% 58%, 51% 58%, 40% 59%, 31% 58%, 40% 46%);
+        }
+        20% {
+            clip-path: polygon(46% 40%, 52% 46%, 63% 58%, 51% 58%, 40% 59%, 31% 58%, 0 28%);
+        }
+        30% {
+            clip-path: polygon(46% 40%, 52% 46%, 63% 58%, 51% 58%, 40% 59%, 0 85%, 0 28%);
+        }
+        40% {
+            clip-path: polygon(46% 40%, 91% 9%, 63% 58%, 51% 58%, 40% 59%, 0 85%, 0 28%);
+        }
+        50% {
+            clip-path: polygon(46% 40%, 91% 9%, 100% 67%, 51% 58%, 40% 59%, 0 85%, 0 28%);
+        }
+        60% {
+            clip-path: polygon(46% 40%, 91% 9%, 100% 67%, 58% 100%, 43% 83%, 0 85%, 0 28%);
+        }
+        70% {
+            clip-path: polygon(0 0, 91% 9%, 100% 67%, 58% 100%, 43% 83%, 0 85%, 0 28%);
+        }
+        80% {
+            background: black;
+            clip-path: polygon(0 0, 92% 0, 100% 67%, 58% 100%, 0 100%, 0 85%, 0 28%);
+        }
+        90% {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 58% 100%, 0 100%, 0 85%, 0 28%);
+        }
+        100% {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 58% 100%, 0 100%, 0 85%, 0 28%);
+        }
+    };
 `;
 
 export const ToggleLight = styled(CgToggleSquare)`
@@ -31,7 +74,6 @@ export const ToggleLight = styled(CgToggleSquare)`
         right: 20%;
         top: 40px;
     }
-
 `;
 
 export const ToggleDark = styled(CgToggleSquareOff)`
@@ -57,13 +99,15 @@ export const Wrapper = styled.aside`
     width: 80%;
     height: 70%;
     max-height: 500px;
-    border-radius: 20px;
-    background: ${({theme}) => theme.wrapper};
-    backdrop-filter: (5rem);
-    border: 1px solid transparent;
     align-items: center;
-    justify-content: space-around;
+    backdrop-filter: (5rem);
 
+    border-radius: 20px;
+    border: 1px solid transparent;
+
+    background: ${({theme}) => theme.wrapper};
+    justify-content: space-around;
+    
     @media(min-width: 1024px){
         padding: 70px;
         border: 1px solid ${({theme}) => theme.border};
@@ -85,6 +129,18 @@ export const Content = styled.div`
     padding: 15px 5px;
     border-radius: 15px;
     background:${({ theme }) => theme.body};
+
+    transition: .8s ease-in;
+    animation: lines 3s linear;
+
+    @keyframes lines {
+        0% {
+            border: 2 solid transparent;
+        }
+        100% {
+            border: 2px solid rgb(64, 115, 198, .8);
+        }
+    }
 `;
 
 export const Contact = styled.div`

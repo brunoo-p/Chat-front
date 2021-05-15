@@ -28,7 +28,7 @@ export const Container = styled.div`
 
     .contactName{
         padding: 5px;
-        width: 200px;
+        width: 0px;
         text-align: center;
         font-size: 14px;
         font-weight: 900;
@@ -37,7 +37,6 @@ export const Container = styled.div`
         background: none;
         border: none;
         border-radius: 5px;
-        border-bottom: 2px solid rgba(64, 115, 158, .3);
         
         transition: 0.3s ease-in;
         transform: translateY(-25px);
@@ -45,8 +44,9 @@ export const Container = styled.div`
         :focus{
             filter: none;
             outline: none;
+            width: 200px;
             background: rgba(34,200,122, 0.2);
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid rgba(64, 115, 158, .3);
         }
     }
 

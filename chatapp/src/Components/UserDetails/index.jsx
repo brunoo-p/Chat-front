@@ -34,6 +34,7 @@ export default function UserDetails({setShowPortal, setChat}) {
         if(event.keyCode === KEYBOARD_ENTERCODE){
             setContactName(event.target.value);
             contactInput.current.value = "";
+            contactInput.current.blur();
         }
     }
 
