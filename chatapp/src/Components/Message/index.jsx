@@ -27,7 +27,7 @@ function Message({user, message, date, myUser}) {
             
             </Content>
 
-            <audo id="audio" src={msg}></audo>
+            <audio id="audio" src={msg}></audio>
         </Container>
     )
 }
