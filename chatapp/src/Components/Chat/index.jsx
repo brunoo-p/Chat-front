@@ -16,7 +16,7 @@ export default function Chat() {
     const [ _, setId ] = useState('');
 
     const [ theme, setTheme ] = useState('light');
-    const [ showPortal, setShowPortal ] = useState(false);
+    const [ showPortal, setShowPortal ] = useState(true);
     const myUser = user;
 
     const latestChat = useRef(null);
