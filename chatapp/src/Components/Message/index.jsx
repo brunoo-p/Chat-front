@@ -19,7 +19,7 @@ function Message({user, message, date, myUser}) {
 
     return (
         <Container style={{justifyContent: side}}>
-            
+
             <Content style={{backgroundColor: background}}>
             
                 <Text >{message}</Text>
@@ -27,7 +27,7 @@ function Message({user, message, date, myUser}) {
             
             </Content>
 
-            <audo id="audio"> {msg} </audo>
+            <audo id="audio" src={msg}></audo>
         </Container>
     )
 }
