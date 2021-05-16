@@ -8,21 +8,24 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    overflow: hidden;
 
     backdrop-filter: blur(3px);
     border: 1px solid white;
     padding 20px;
     
     border-radius: 15px;
+    
     transition: 0.5s ease-out;
     animation: move 1.5s infinite;
+
 
     @keyframes move {
         0% {transform: translateY(0)}
         50% {transform: translateY(-5%)}
-        100% {transform: translateY(0)}
+        100% {transform: translateY(0%)}
     }
-    
+
     :hover{
         backdrop-filter: blur(15px);
         animation: none;
@@ -38,6 +41,12 @@ export const Container = styled.div`
             color: blue;
             text-decoration: 2px underline #7d5fff;
         }
+    }
+
+
+    &.logged{
+        transition: 0.5s ease-in;
+        transform: translateY(150%);
     }
 `;
     

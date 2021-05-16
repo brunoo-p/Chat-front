@@ -6,6 +6,7 @@ import { Container, Form } from './styles';
 export default function Nickname({setUser, setId, setShowPortal}) {
     
     const [ login, setLogin ] = useState(false);
+    const [ isLegged, setIsLogged ] = useState(false);
     const [name, setName ] = useState('');
     const [nickname, setNickname ] = useState('');
     const [password, setPassword ] = useState('');
@@ -34,7 +35,12 @@ export default function Nickname({setUser, setId, setShowPortal}) {
             setUser( nickname );
             setId( id );
 
-            setShowPortal(false);
+            setIsLogged(true);
+            
+            setTimeout(() => {
+
+                setShowPortal(false);
+            }, 450);
         }
     }
 
@@ -58,11 +64,18 @@ export default function Nickname({setUser, setId, setShowPortal}) {
         
         setUser( nickname );
         setId( Math.floor(Math.random() * 256));
-        setShowPortal(false);
+        
+        setIsLogged(true);
+            
+            setTimeout(() => {
+
+                setShowPortal(false);
+            }, 450);
     }
 
+    let logged = isLegged && 'logged';
     return (
-        <Container>
+        <Container className={logged}>
             { login ?
             <>
                 <Form onSubmit={handleSubmitLogin}>

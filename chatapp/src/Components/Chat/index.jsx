@@ -126,7 +126,7 @@ export default function Chat() {
                             <ChatInput sendMessage={sendMessage} />
                         </Content>
                     
-                    </Wrapper>   
+                    </Wrapper>
                 </Container>
             }
         </ThemeProvider>

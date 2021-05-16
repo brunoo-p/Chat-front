@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { FaMicrophoneAlt } from 'react-icons/fa';
 import { MdKeyboardArrowUp } from 'react-icons/md';
 import {IoCloseCircleOutline} from 'react-icons/io5';
+import { RiRecordCircleFill } from 'react-icons/ri';
 
 export const Form = styled.form`
     margin: 0;
@@ -32,6 +33,11 @@ export const Form = styled.form`
             background: rgba(64, 74, 168,.2);
             border: 2px solid ${({theme}) => theme.borderInput};
         }
+    }
+
+    .inputAudio{
+        width: 100%;
+        transition: 0.5s ease-in;
     }
     
 `; 
@@ -163,9 +169,20 @@ export const MicIcon = styled(FaMicrophoneAlt)`
 
     color: ${({theme}) => theme.text};
     cursor: pointer;
-    transition: 0.2s ease-in;
+    transition: 0.3s ease-in;
 
     :hover{
         color: #60a3bc;
     }
+`;
+
+export const RecordIcon = styled(RiRecordCircleFill)`
+    width: 0px;
+    height: 10px;
+    position: relative;
+    
+    color: #ff7979;
+    transform: scale(2) translateX(-10px);
+    transition: 0.3s ease-in;
+    
 `;
