@@ -23,7 +23,7 @@ export default function ChatInput({sendMessage}) {
     } = useReactMediaRecorder({ video: false });
     
     const [message, setMessage ] = useState('');
-    const [ listening, setListening ] = useState(false);
+    const [ listening, setListening ] = useState(true);
     const [ sendEmoji, setSendEmoji ] = useState(false);
 
     const onSubmit = (event) => {
@@ -76,7 +76,7 @@ export default function ChatInput({sendMessage}) {
     const handleStop = () => {
         stopRecording();
         
-       // setListening(false);
+        setListening(false);
         
         clearBlobUrl();
     }
@@ -109,11 +109,11 @@ export default function ChatInput({sendMessage}) {
                     placeholder="Digite a menssagem" 
                     value={message}
                     onChange={onMessageUpdate}
-                    style={{width: listening ? 0 : '100%'}}
+                    style={{width: listening ? 0 : '100%', transform: listening && 'translateX(-150%)'}}
                 />
 
                 <audio className="inputAudio" src={mediaBlobUrl} style={{width: listening ? '100%' : 0}} controls />
-                <label style={{display: !listening && 'none', width: !listening && 0}}onClick={handleStop}>X</label>
+                <label className="stopRecord" style={{display: !listening && 'none', width: !listening && 0}} onClick={handleStop}> X </label>
 
                 {message.length > 0 ?
                     <SendMessage>Enviar</SendMessage>

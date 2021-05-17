@@ -46,7 +46,9 @@ export const Container = styled.div`
 
     &.logged{
         transition: 0.5s ease-in;
+        animation-fill-mode: forwards;
         transform: translateY(150%);
+        
     }
 `;
     

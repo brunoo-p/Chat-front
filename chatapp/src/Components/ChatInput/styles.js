@@ -49,6 +49,26 @@ export const WriteMessage = styled.div`
     border-radius: 15px;
     justify-content: space-between;
     padding: 5px;
+
+    audio {
+        flex: 1;
+        max-height: 40px;
+        transform: translateY(10px);
+    }
+
+    .stopRecord{
+        display: flex;
+        position: relative;
+        height: 15px;
+        width: 15px;
+        
+        justify-content: center;
+        align-items: center;
+        padding: 3px;
+        
+        border-radius: 50%;
+        cursor: pointer;
+    }
 `;
 
 export const EmojiArea = styled.div`
