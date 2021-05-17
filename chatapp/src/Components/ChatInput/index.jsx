@@ -22,7 +22,7 @@ export default function ChatInput({sendMessage}) {
         mediaBlobUrl
     } = useReactMediaRecorder({ video: false });
     
-    const [message, setMessage ] = useState('');
+    const [ message, setMessage ] = useState('');
     const [ listening, setListening ] = useState(false);
     const [ sendEmoji, setSendEmoji ] = useState(false);
 

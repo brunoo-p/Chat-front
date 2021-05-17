@@ -46,8 +46,13 @@ export const Container = styled.div`
 
     &.logged{
         transition: 0.5s ease-in;
+        animation: down 0.5s ease-in-out;
         animation-fill-mode: forwards;
-        transform: translateY(150%);
+
+        @keyframes down {
+            from { transform : translateY(0)}
+            to   { transform : translateY(150%)}
+        }
         
     }
 `;

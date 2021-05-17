@@ -26,7 +26,7 @@ export default function Chat() {
 
     useEffect(() => {
         const newConnection = new HubConnectionBuilder()
-            .withUrl("https://localhost:5001/chat")
+            .withUrl("https://brpchat-back.herokuapp.com/chat")
             .withAutomaticReconnect()
             .build();
             
