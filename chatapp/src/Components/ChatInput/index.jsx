@@ -23,7 +23,7 @@ export default function ChatInput({sendMessage}) {
     } = useReactMediaRecorder({ video: false });
     
     const [ message, setMessage ] = useState('');
-    const [ listening, setListening ] = useState(false);
+    const [ listening, setListening ] = useState(true);
     const [ sendEmoji, setSendEmoji ] = useState(false);
 
     const onSubmit = (event) => {
@@ -103,6 +103,7 @@ export default function ChatInput({sendMessage}) {
         <OpenEmojiPick onClick={() => setSendEmoji(!sendEmoji)}/>
         
         <Form onSubmit={onSubmit}> 
+                <audio className="inputAudio" src={mediaBlobUrl} style={{width: listening ? '100%' : 0}} controls />
 
             <WriteMessage>
                 <input type="text" name="message" className="inputMessage"
@@ -112,7 +113,6 @@ export default function ChatInput({sendMessage}) {
                     style={{width: listening ? 0 : '100%', transform: listening && 'translateX(-150%)'}}
                 />
 
-                <audio className="inputAudio" src={mediaBlobUrl} style={{width: listening ? '100%' : 0}} controls />
                 <label className="stopRecord" style={{display: !listening && 'none', width: !listening && 0}} onClick={handleStop}> X </label>
 
                 {message.length > 0 ?
