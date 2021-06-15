@@ -23,7 +23,7 @@ export default function ChatInput({sendMessage}) {
     } = useReactMediaRecorder({ video: false });
     
     const [ message, setMessage ] = useState('');
-    const [ listening, setListening ] = useState(true);
+    const [ listening, setListening ] = useState(false);
     const [ sendEmoji, setSendEmoji ] = useState(false);
 
     const onSubmit = (event) => {
