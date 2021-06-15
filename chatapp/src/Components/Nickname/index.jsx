@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { HubConnectionBuilder } from '@microsoft/signalr';
 import api from '../../Services/api';
 
 import { Container, Form } from './styles';
 
-export default function Nickname({setUser, setId, setShowPortal}) {
+export default function Nickname({setUser, setId, setShowPortal, setConnection}) {
     
     const [ login, setLogin ] = useState(false);
     const [ isLegged, setIsLogged ] = useState(false);
@@ -11,6 +12,15 @@ export default function Nickname({setUser, setId, setShowPortal}) {
     const [nickname, setNickname ] = useState('');
     const [password, setPassword ] = useState('');
 
+
+    useEffect(() => {
+        const newConnection = new HubConnectionBuilder()
+            .withUrl("https://brpchat-back.herokuapp.com/chat")
+            .withAutomaticReconnect()
+            .build();
+            
+            setConnection(newConnection);
+    }, []);
 
     const handleNickName = (event) =>{
         setNickname((event.target.value).toLowerCase());
