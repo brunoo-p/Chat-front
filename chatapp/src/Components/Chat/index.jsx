@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import { HubConnectionBuilder } from '@microsoft/signalr';
+import { HubConnectionBuilder } from '@microsoft/signalr';
 import { ChatInput, ChatWindow, Portal, Nickname, UserDetails } from '..';
 
 import {ThemeProvider} from 'styled-components';
@@ -24,14 +24,14 @@ export default function Chat() {
 
     latestChat.current = chat;
 
-    // useEffect(() => {
-    //     const newConnection = new HubConnectionBuilder()
-    //         .withUrl("https://brpchat-back.herokuapp.com/chat")
-    //         .withAutomaticReconnect()
-    //         .build();
+    useEffect(() => {
+        const newConnection = new HubConnectionBuilder()
+            .withUrl("https://brpchat-back.herokuapp.com/chat")
+            .withAutomaticReconnect()
+            .build();
             
-    //         setConnection(newConnection);
-    // }, []);
+            setConnection(newConnection);
+    }, []);
 
 
         useEffect(() => {
