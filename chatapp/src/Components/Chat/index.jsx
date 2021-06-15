@@ -61,8 +61,15 @@ export default function Chat() {
                     {
                         console.log(err);
                     }
+                }else{
+                    const newConnection = new HubConnectionBuilder()
+                    .withUrl("https://brpchat-back.herokuapp.com/chat")
+                    .withAutomaticReconnect()
+                    .build();
+                    
+                    setConnection(newConnection);
                 }
-            })()
+            })();
 
         }, [connection]);
 
